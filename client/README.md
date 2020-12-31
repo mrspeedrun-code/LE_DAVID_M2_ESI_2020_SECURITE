@@ -1,8 +1,8 @@
 # Blog App
 
-* A basic blog app built with React and Bootstrap.
+A basic blog app built with React and Bootstrap.
 
-* With the following feature:
+With the following feature:
 
 * [] Route config with react-router-dom
 * [] Header
