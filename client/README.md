@@ -3,10 +3,9 @@
 * A basic blog app built with React and Bootstrap.
 
 * With the following feature:
-## Front-end
 
-* [x] Route config with react-router-dom
-* [x] Header
+* [] Route config with react-router-dom
+* [] Header
 * [] Login modal form
 * [] Subscribe modal form
 * [] Listen for form submit
