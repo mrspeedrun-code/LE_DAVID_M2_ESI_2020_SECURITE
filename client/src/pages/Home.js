@@ -1,7 +1,8 @@
 import React from 'react'
+import CreateProduct from '../components/productComponents/CreateProduct'
 
 export const Home = () => (
   <div>
-    <h2>Hello World</h2>
+    <CreateProduct />
   </div>
 )

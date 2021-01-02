@@ -1,7 +1,7 @@
 import React from 'react';
 import { Jumbotron as Jumbo, Container } from 'react-bootstrap';
 import styled from 'styled-components';
-import boatImage from '../assets/image.jpg';
+import boatImage from '../../assets/image.jpg';
 
 const Styles = styled.div`
   .jumbo {
