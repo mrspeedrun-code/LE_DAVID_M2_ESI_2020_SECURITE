@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const helmet = require("helmet")
 require("dotenv").config();
 
 // set up express
@@ -8,6 +9,7 @@ require("dotenv").config();
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(helmet());
 
 const PORT = process.env.PORT || 5000;
 

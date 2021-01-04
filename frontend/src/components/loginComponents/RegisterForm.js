@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
 import UserContext from "../../context/userContext";
 import axios from 'axios';
 
@@ -9,7 +9,7 @@ function RegisterForm() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [passwordCheck, setPasswordCheck] = useState();
-  const [error, setError] = useState();
+  const [error, setError] = useState('');
 
   const { setUserData } = useContext(UserContext);
   const history = useHistory();
@@ -37,6 +37,11 @@ function RegisterForm() {
   return (
     <Form onSubmit={handleOnSubmit}>
       <h2>Register</h2>
+      {error.length > 0 &&
+        <Alert variant="danger" dismissible>
+        <Alert.Heading>{error}</Alert.Heading>
+      </Alert>
+      }
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control
