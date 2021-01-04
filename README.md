@@ -20,9 +20,9 @@ The objective of this project is to integrate security into a specific architect
 * [x] Login modal form
 * [x] Subscribe modal form
 * [x] Listen for form submit
-* [] A page with a form to create products (id, item name, item description, photo)
-* [] One page to delete items
-* [] One page to list the articles
+* [x] A page with a form to create products (id, item name, item description, photo)
+* [x] One page to delete items
+* [x] One page to list the articles
 
 ## Back-end
 
