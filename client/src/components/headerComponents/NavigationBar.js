@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Nav, Navbar, Button } from 'react-bootstrap'
 import styled from 'styled-components'
+import AuthOptions from '../loginComponents/AuthOptions';
 
 const Styles = styled.div`
   .navbar {
@@ -29,9 +30,7 @@ function NavigationBar() {
                 <Link to="/">Home</Link>
               </Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-              <Link to="/login"><Button variant="primary">Sign In</Button></Link>
-            </Nav.Item>
+            <AuthOptions />
           </Nav>
         </Navbar.Collapse>
       </Navbar>
