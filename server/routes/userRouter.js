@@ -64,7 +64,7 @@ router.post("/login", async (req, res) => {
       id: user._id }, // payload
       process.env.JWT_SECRET, // token
       {
-        expiresIn: 60, // token expiration
+        expiresIn: 1500, // token expiration
         algorithm: 'HS256' // token signature HS256
       });
 

@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Nav, Navbar, Button } from 'react-bootstrap'
+import { Nav, Navbar } from 'react-bootstrap'
 import styled from 'styled-components'
 import AuthOptions from '../loginComponents/AuthOptions';
 

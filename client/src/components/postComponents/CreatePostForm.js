@@ -1,10 +1,43 @@
 import React, { useState, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Form, Col, Button } from 'react-bootstrap'
+import { Form, Col, Button, Alert } from 'react-bootstrap'
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import { API_URL } from '../../utils/constants';
 import styled from 'styled-components'
+
+const Styles = styled.div`
+.image-preview {
+  height: inherit;
+  margin-left: 5%;
+}
+
+.preview-image {
+  width: 100%;
+  height: inherit;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.preview-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5%;
+}
+
+.drop-zone {
+  margin-bottom: 10px;
+  padding: 40px 10px;
+  height: inherit;
+  border: 2px dashed #e9ebeb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+`;
 
 function CreatePostForm(props) {
   const [file, setFile] = useState(null); // state for storing actual image
@@ -14,46 +47,12 @@ function CreatePostForm(props) {
     description: ''
   });
   const [errorMsg, setErrorMsg] = useState('');
+  const [createMsg, setCreateMsg] = useState('');
   const [isPreviewAvailable, setIsPreviewAvailable] = useState(false); // state to show preview only for images
   const dropRef = useRef(); // React ref for managing the hover state of droppable area
+  const [show, setShow] = useState(true);
 
-  const Styles = styled.div`
-    .image-preview {
-      height: inherit;
-      margin-left: 5%;
-    }
 
-    .preview-image {
-      width: 100%;
-      height: inherit;
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .preview-message {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-left: 5%;
-    }
-
-    .drop-zone {
-      margin-bottom: 10px;
-      padding: 40px 10px;
-      height: inherit;
-      border: 2px dashed #e9ebeb;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-
-      &:focus {
-        outline: none;
-      }
-    }
-  }
-`;
 
   const handleInputChange = (event) => {
     setState({
@@ -97,9 +96,10 @@ function CreatePostForm(props) {
           setErrorMsg('');
           await axios.post(`${API_URL}/api/upload`, formData, {
             headers: {
-              'Content-Type': 'multipart/form-data'
+              'Content-Type': 'multipart/form-data',
+              'x-auth-token': localStorage.getItem('auth-token')
             }
-          });
+          }).then(() => setCreateMsg('the post to was created'));
           props.history.push('/list');
         } else {
           setErrorMsg('Please select a file to add.');
@@ -116,6 +116,16 @@ function CreatePostForm(props) {
     <Styles>
     <Form className="search-form" onSubmit={handleOnSubmit}>
       <h2>Create Post Form</h2>
+      {errorMsg.length > 0 &&
+        <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+        <Alert.Heading>{errorMsg}</Alert.Heading>
+      </Alert>
+      }
+      {createMsg.length > 0 &&
+        <Alert variant="success" onClose={() => setShow(false)} dismissible>
+        <Alert.Heading>{createMsg}</Alert.Heading>
+      </Alert>
+      }
       <Form.Row>
         <Form.Group as={Col} controlId="formGridArticleName">
           <Form.Label>Article Name</Form.Label>

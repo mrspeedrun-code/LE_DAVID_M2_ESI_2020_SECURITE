@@ -25,10 +25,9 @@ function LoginForm() {
       });
       localStorage.setItem("auth-token", loginResponse.data.token);
       history.push("/");
-  } catch(err) {
+    } catch(err) {
       err.response.data.msg && setError(err.response.data.msg)
-  }
-
+    }
   }
 
   return (
@@ -64,4 +63,3 @@ function LoginForm() {
 }
 
 export default LoginForm
-// login todo

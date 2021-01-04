@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Nav, Navbar, Button } from 'react-bootstrap'
+import { Nav, Button } from 'react-bootstrap'
 import UserContext from "../../context/userContext";
 
 function AuthOptions () {
@@ -20,22 +20,22 @@ function AuthOptions () {
     };
 
     return (
-        <nav className="auth-options">
-            {userData.user ? (
-              <Nav.Item>
-                <Link to="/login">
-                  <Button variant="primary" onClick={logout}>
-                    Logout
-                  </Button>
-                </Link>
-              </Nav.Item>
-            ) : (
-                <>
-                <button className="btn btn-primary mr-2" onClick={register}>Sign Up</button>
-                <button className="btn btn-primary mr-2" onClick={login}>Login</button>
-                </>
-            )}
-        </nav>
+      <nav className="auth-options">
+        {userData.user ? (
+          <Nav.Item>
+            <Link to="/login">
+              <Button variant="primary" onClick={logout}>
+                Logout
+              </Button>
+            </Link>
+          </Nav.Item>
+          ) : (
+            <>
+              <button className="btn btn-primary mr-2" onClick={register}>Sign Up</button>
+              <button className="btn btn-primary mr-2" onClick={login}>Login</button>
+            </>
+          )}
+      </nav>
     )
 }
 

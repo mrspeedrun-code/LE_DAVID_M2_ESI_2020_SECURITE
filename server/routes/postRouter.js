@@ -67,6 +67,15 @@ router.get('/getAllPosts', auth, async (req, res) => {
   }
 });
 
+router.delete("/deletePost/:id", auth, async (req, res) => {
+  try {
+    const deletedPost = await Post.findByIdAndDelete(req.params.id);
+    res.json(deletedPost);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 router.get('/download/:id', auth, async (req, res) => {
   try {
     const file = await Post.findById(req.params.id);

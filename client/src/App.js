@@ -4,7 +4,8 @@ import axios from 'axios';
 import Home from './pages/Home';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
-import { Post } from './pages/Post';
+import Post from './pages/Post';
+import Delete from './pages/DeletePage';
 import { NoMatch } from './components/NoMatch';
 import { Layout } from './components/Layout';
 import NavigationBar from './components/headerComponents/NavigationBar';
@@ -52,6 +53,7 @@ function App() {
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
               <Route path="/post" component={Post} />
+              <Route path="/delete" component={Delete} />
               <Route component={NoMatch} />
             </Switch>
           </Layout>

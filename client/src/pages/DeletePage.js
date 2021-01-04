@@ -2,9 +2,9 @@ import React, { useEffect, useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import UserContext from '../context/userContext';
 import ActionPost from '../components/postComponents/ActionPost'
-import CreatePostForm from '../components/postComponents/CreatePostForm'
+import DeletePost from '../components/postComponents/DeletePost'
 
-function Post() {
+function Delete() {
   const {userData} = useContext(UserContext);
   const history = useHistory();
 
@@ -19,7 +19,7 @@ function Post() {
     {userData.user ? (
       <>
       <ActionPost />
-      <CreatePostForm />
+      <DeletePost />
       </>
     ) : (
         <>
@@ -31,4 +31,4 @@ function Post() {
   );
 }
 
-export default Post;
+export default Delete;

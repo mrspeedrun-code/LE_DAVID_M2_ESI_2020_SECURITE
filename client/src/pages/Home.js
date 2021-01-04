@@ -1,7 +1,8 @@
 import React, { useEffect, useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import UserContext from '../context/userContext';
-import CreatePost from '../components/postComponents/CreatePost'
+import ActionPost from '../components/postComponents/ActionPost'
+import ListPost from '../components/postComponents/ListPost'
 
 function Home() {
   const {userData} = useContext(UserContext);
@@ -17,8 +18,8 @@ function Home() {
   <div>
     {userData.user ? (
       <>
-      <h1>Welcome {userData.user.displayName}</h1>
-      <CreatePost />
+      <ActionPost />
+      <ListPost />
       </>
     ) : (
         <>
