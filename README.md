@@ -39,6 +39,9 @@ docker-compose up --build
 
   
 ## Nginx configuration
-* [] Add a configuration in the nginx conf to manage a reverse proxy between the client and the node.js application.
+* [x] Add a configuration in the nginx conf to manage a reverse proxy between the client and the node.js application.
 * [] Organise the nginx config well for security (ports, TLS, reverse proxy, etc.)
 
+When calling a service (example: login, register, add article etc...) the frontend application passes through the nginx proxy which was configured at port 8000 of the localhost to access the API service of the backend application.
+
+the backend application uses port 4242.
