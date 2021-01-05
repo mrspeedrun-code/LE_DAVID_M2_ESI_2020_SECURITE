@@ -7,12 +7,11 @@ The objective of this project is to integrate security into a specific architect
 * Data-Base --> MongoDB
 * Dockerizing --> Docker & Nginx
 
-## Docker File
-...
 
 ## Docker Run
-...
-
+```
+docker-compose up --build
+```
 ## Front-end
 
 * [x] Route config with react-router-dom
@@ -26,14 +25,14 @@ The objective of this project is to integrate security into a specific architect
 
 ## Back-end
 
-* [] A client-server authentication API must be developed to log in. This same API must be secured in TLS and must be served with nginx
+* [x] A client-server authentication API must be developed to log in. This same API must be secured in TLS and must be served with nginx
   * [x] a. Use JWT to secure this authentication API to authenticate an user
   * [x] b. These users must be stored in a database (mongo)
   * [x] c. Use an algorithm for signing the token: HS256
   * [x] d. Take into account the expiry of the token
   * [x] e. The generated token must take into account (the header, the payload and the signature)
-* [] Create a second API that will be consumed by the authentication API
-  * [] a. This second API should make it possible to create content through a form, delete it and list it
+* [x] Create a second API that will be consumed by the authentication API
+  * [x] a. This second API should make it possible to create content through a form, delete it and list it
   * [] b. This API must also be secured in TLS
   * [] c. An API key and a secret sharing key will have to be used for communication between the application and the API.
   bien organiser la config nginx pour la sécurité (ports, TLS, reverse proxy, etc)

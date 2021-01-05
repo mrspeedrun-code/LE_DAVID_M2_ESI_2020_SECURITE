@@ -19,8 +19,8 @@ function RegisterForm() {
 
     try{
       const newUser = {email, password, passwordCheck};
-      await axios.post("http://localhost:4242/api/register", newUser);
-      const loginResponse = await axios.post("http://localhost:4242/api/login", {
+      await axios.post("http://localhost:8000/api/register", newUser);
+      const loginResponse = await axios.post("http://localhost:8000/api/login", {
           email, password
       });
       setUserData({
