@@ -5,8 +5,7 @@ The objective of this project is to integrate security into a specific architect
 * Front-end --> React & Bootstrap
 * Back-end --> Node.js
 * Data-Base --> MongoDB
-* Dockerizing --> Docker & Nginx
-
+* Dockerizing (frontend, backend and mongo)
 
 ## Docker Run
 ```
