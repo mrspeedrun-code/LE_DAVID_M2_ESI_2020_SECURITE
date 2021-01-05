@@ -1,19 +1,14 @@
-# Use a lighter version of Node as a parent image
-FROM node:14.14
+# Create image based on the official Node 6 image from the dockerhub
+FROM node:14-slim
 
-# Set the working directory to /api
-WORKDIR /app
+WORKDIR /usr/src/app
 
-# copy package.json into the container at /api
-COPY package.json /app
+COPY ./package.json ./
 
-COPY . /app
-
-# Install app dependencies
 RUN npm install
 
-# Make port 80 available to the world outside this container
+COPY . .
+
 EXPOSE 4242
 
-# Run the app when the container launches
 CMD ["npm", "start"]

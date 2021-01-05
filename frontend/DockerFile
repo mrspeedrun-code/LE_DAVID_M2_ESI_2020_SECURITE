@@ -1,23 +1,15 @@
 # Create image based on the official Node 6 image from the dockerhub
-FROM node:14.14
+FROM node:14-slim
 
-# Create app directory
-RUN mkdir -p /usr/src/app
-
-# Change directory so that our commands run inside this new directory
 WORKDIR /usr/src/app
 
-# Copy dependency definitions
-COPY package*.json /usr/src/app/
+COPY ./package.json ./
+COPY ./yarn.lock ./
 
-# Get all the code needed to run the app
-COPY . /usr/src/app/
+RUN yarn install
 
-# Install app dependencies
-RUN npm install
+COPY . .
 
-# Expose the port the app runs in
 EXPOSE 3000
 
-# Serve the app
-CMD ["npm", "start"]
+CMD [ "yarn" , "start" ]
